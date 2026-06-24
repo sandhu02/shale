@@ -1,0 +1,159 @@
+.detail {
+  padding: 24px 0 48px;
+}
+
+.breadcrumb {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 24px;
+}
+.breadcrumb a {
+  color: #c8102e;
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+
+.gallery {
+  /* gallery component styles */
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.name {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.category {
+  font-size: 16px;
+  color: #888;
+  margin: 0;
+}
+
+.pricing {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 8px 0;
+}
+
+.current {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.original {
+  font-size: 20px;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.discount {
+  font-size: 16px;
+  font-weight: 700;
+  color: #c8102e;
+  background: #fde8e8;
+  padding: 2px 12px;
+  border-radius: 20px;
+}
+
+.description {
+  border-top: 1px solid #eaeaea;
+  padding-top: 16px;
+  margin-top: 8px;
+}
+.description h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.description p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #444;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.optionGroup label {
+  font-size: 14px;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.sizeOptions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sizeBtn {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+.sizeBtn:hover {
+  border-color: #c8102e;
+}
+.sizeBtn:active {
+  background: #c8102e;
+  color: #fff;
+}
+
+.colorOptions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.colorBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.colorBtn:hover {
+  border-color: #c8102e;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .name {
+    font-size: 26px;
+  }
+  .current {
+    font-size: 24px;
+  }
+}

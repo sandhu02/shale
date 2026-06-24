@@ -1,0 +1,69 @@
+.cartSection {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.qtyBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  background: #fff;
+  font-size: 20px;
+  font-weight: 300;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.qtyBtn:hover:not(:disabled) {
+  border-color: #c8102e;
+  background: #fde8e8;
+}
+.qtyBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.qtyValue {
+  font-size: 20px;
+  font-weight: 600;
+  min-width: 30px;
+  text-align: center;
+}
+
+.addBtn {
+  background: #c8102e;
+  border: none;
+  color: #fff;
+  padding: 14px 32px;
+  border-radius: 40px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  width: fit-content;
+  min-width: 200px;
+}
+.addBtn:hover:not(:disabled) {
+  background: #a80d26;
+}
+.addBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.message {
+  font-size: 14px;
+  color: #2d7a2d;
+  font-weight: 500;
+}
