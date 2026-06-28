@@ -1,19 +1,35 @@
 'use client';
 
 import { useState } from 'react';
+import { useCart } from '@/context/CartContext';
 import styles from './AddToCart.module.css';
 
-export default function AddToCart({ productId, inStock }) {
+export default function AddToCart({ product }) {
+  const { addItem } = useCart();
   const [quantity, setQuantity] = useState(1);
   const [message, setMessage] = useState('');
+
+  console.log("product" , product)
+
+  const { _id, name, price, images, inStock } = product;
 
   const handleAdd = () => {
     if (!inStock) {
       setMessage('Sorry, this item is out of stock.');
       return;
     }
-    // In a real app, dispatch to cart context/state
-    setMessage(`Added ${quantity} item(s) to cart!`);
+
+    // Add item to cart
+    addItem({
+      id: _id,
+      name,
+      price,
+      image: images?.[0] || '/placeholder.jpg', // Use first image as thumbnail
+      quantity,
+    });
+
+    setMessage(`Added ${quantity} × "${name}" to cart!`);
+    setQuantity(1); // Reset quantity
     setTimeout(() => setMessage(''), 3000);
   };
 

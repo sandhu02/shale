@@ -15,7 +15,7 @@ export default function ProductDetail({ product }) {
     sizes, 
     colors, 
     inStock 
-  } = product.data;
+  } = product;
 
   const discountedPrice = discount ? price - (price * discount) / 100 : price;
 
@@ -82,7 +82,7 @@ export default function ProductDetail({ product }) {
             )}
           </div>
 
-          <AddToCart productId={product.id} inStock={inStock} />
+          <AddToCart product={product} />
         </div>
       </div>
     </div>

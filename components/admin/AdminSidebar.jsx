@@ -12,6 +12,7 @@ export default function AdminSidebar() {
         <Link href="/admin">Dashboard</Link>
         <Link href="/admin/items">Items</Link>
         <Link href="/admin/categories">Categories</Link>
+        <Link href="/admin/orders">Orders</Link>
         <Link href="/admin/logout">Logout</Link>
       </nav>
     </aside>

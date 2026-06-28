@@ -3,14 +3,17 @@ import ProductDetail from '@/components/product/ProductDetail';
 
 async function getProduct(id: string) {
   
-  const product = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/items/${id}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/items/${id}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     },
   });
 
-  return product || null;
+
+
+  const { data } = await res.json();
+  return data;
 }
 
 export default async function ProductPage({
@@ -19,13 +22,11 @@ export default async function ProductPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const response = await getProduct(id);
+  const product = await getProduct(id);
 
-  if (!response) {
+  if (!product) {
     notFound();
   }
-
-  const product = await response.json();
 
   return <ProductDetail product={product} />;
 }

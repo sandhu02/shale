@@ -18,9 +18,9 @@ export default function Header() {
             <FaWhatsapp className={styles.icon} />
             042-32761261
           </a>
-          <a href="#">
+          <a href="/cart">
             <FaUserCircle className={styles.userIcon} />
-            Login
+            Cart
           </a>
         </div>
       </div>
