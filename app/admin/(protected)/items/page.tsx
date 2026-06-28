@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import styles from './page.module.css';
 
+export const dynamic = 'force-dynamic';
+
 async function getItems() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/items`);
   const { data } = await res.json();

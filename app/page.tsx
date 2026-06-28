@@ -5,6 +5,8 @@ import HeroBanner from '../components/HeroBanner';
 import SearchBar from '../components/SearchBar';
 import ProductGrid from '../components/ProductGrid';
 
+export const dynamic = 'force-dynamic';
+
 async function getProducts() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/items`);
   const {data} = await res.json();

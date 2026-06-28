@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import styles from './page.module.css';
 
+export const dynamic = 'force-dynamic';
+
 async function getCategories() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/categories`, {
     cache: 'no-store',
