@@ -1,5 +1,5 @@
 import styles from './Header.module.css';
-import { FaShoePrints, FaEnvelope, FaWhatsapp, FaUserCircle } from 'react-icons/fa';
+import { FaShoePrints, FaEnvelope, FaWhatsapp, FaUserCircle, FaShoppingCart  } from 'react-icons/fa';
 
 export default function Header() {
   return (
@@ -19,7 +19,7 @@ export default function Header() {
             042-32761261
           </a>
           <a href="/cart">
-            <FaUserCircle className={styles.userIcon} />
+            <FaShoppingCart className={styles.icon} />
             Cart
           </a>
         </div>
