@@ -3,7 +3,19 @@ import ProductGallery from './ProductGallery';
 import AddToCart from './AddToCart';
 
 export default function ProductDetail({ product }) {
-  const { name, category, description, price, discount, images, sizes, colors, inStock } = product;
+  console.log('ProductDetail product:', product);
+
+  const { 
+    name, 
+    category, 
+    description, 
+    price, 
+    discount = 0, 
+    images, 
+    sizes, 
+    colors, 
+    inStock 
+  } = product.data;
 
   const discountedPrice = discount ? price - (price * discount) / 100 : price;
 
@@ -26,10 +38,10 @@ export default function ProductDetail({ product }) {
           <p className={styles.category}>{category}</p>
 
           <div className={styles.pricing}>
-            <span className={styles.current}>Rs.{discountedPrice.toLocaleString()}</span>
+            <span className={styles.current}>Rs.{discountedPrice}</span>
             {discount > 0 && (
               <>
-                <span className={styles.original}>Rs.{price.toLocaleString()}</span>
+                <span className={styles.original}>Rs.{price}</span>
                 <span className={styles.discount}>-{discount}%</span>
               </>
             )}

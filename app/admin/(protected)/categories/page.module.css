@@ -1,0 +1,95 @@
+.container {
+  padding: 24px 32px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.addBtn {
+  background: #c8102e;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 40px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.addBtn:hover {
+  background: #a80d26;
+}
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.table th {
+  background: #f8f8f8;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: left;
+  padding: 14px 20px;
+  color: #444;
+}
+
+.table td {
+  padding: 14px 20px;
+  border-top: 1px solid #f0f0f0;
+  font-size: 14px;
+}
+
+.inStock {
+  color: #2d7a2d;
+  font-weight: 600;
+  background: #eaf6ea;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.outStock {
+  color: #c8102e;
+  font-weight: 600;
+  background: #fde8e8;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.editLink {
+  color: #c8102e;
+  font-weight: 500;
+  text-decoration: none;
+}
+.editLink:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 16px;
+  }
+  .header h1 {
+    font-size: 22px;
+  }
+}

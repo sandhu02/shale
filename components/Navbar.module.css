@@ -135,6 +135,13 @@
   font-weight: 600;
 }
 
+@media (max-width: 1300px) {
+  .megaMenu {
+    min-width: 560px;
+    padding: 24px;
+    gap: 16px 20px;
+  }
+}
 @media (max-width: 1024px) {
   .megaMenu {
     min-width: 560px;

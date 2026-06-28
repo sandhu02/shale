@@ -24,6 +24,10 @@
   min-height: 200px;
 }
 
+.image {
+  object-fit: cover;
+}
+
 .discountBadge {
   position: absolute;
   top: 12px;
