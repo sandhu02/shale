@@ -6,6 +6,23 @@ import { verifyToken } from '@/lib/auth';
 // POST - Create a new order (public)
 export async function POST(request: NextRequest) {
   try {
+    // Verify admin authentication
+    const token = request.cookies.get('admin_token')?.value;
+    if (!token) {
+      return NextResponse.json(
+        { error: 'Unauthorized' },
+        { status: 401 }
+      );
+    }
+
+    const decoded = verifyToken(token);
+    if (!decoded) {
+      return NextResponse.json(
+        { error: 'Invalid token' },
+        { status: 401 }
+      );
+    }
+
     await dbConnect();
 
     const body = await request.json();
@@ -28,7 +45,7 @@ export async function POST(request: NextRequest) {
 
     // Calculate subtotal (sum of all item prices * quantity)
     const subtotal = items.reduce((sum: number, item: any) => {
-      return sum + (item.price * item.quantity);
+      return sum + (item.discountedPrice * item.quantity);
     }, 0);
 
     // Validate total matches subtotal
@@ -58,7 +75,12 @@ export async function POST(request: NextRequest) {
       items: items.map((item: any) => ({
         productId: item.id,
         name: item.name,
+        category: item.category,
         price: item.price,
+        discount: item.discount || 0,
+        discountedPrice: item.discountedPrice,
+        color: item.color || null,
+        size: item.size || null,
         quantity: item.quantity,
         image: item.image || null,
       })),
@@ -134,6 +156,8 @@ export async function GET(request: NextRequest) {
         .lean(),
       Order.countDocuments(filter),
     ]);
+
+    console.log('orders', orders);
 
     return NextResponse.json({
       success: true,

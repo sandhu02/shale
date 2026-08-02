@@ -1,13 +1,31 @@
 import { NextRequest, NextResponse } from 'next/server';
 import dbConnect from '@/lib/db';
 import Category from '@/models/Category';
+import { verifyToken } from '@/lib/auth';
 
 export async function POST(request : NextRequest) {
   try {
+    // Verify admin authentication
+    const token = request.cookies.get('admin_token')?.value;
+    if (!token) {
+      return NextResponse.json(
+        { error: 'Unauthorized' },
+        { status: 401 }
+      );
+    }
+
+    const decoded = verifyToken(token);
+    if (!decoded) {
+      return NextResponse.json(
+        { error: 'Invalid token' },
+        { status: 401 }
+      );
+    }
+    
     await dbConnect();
     const body = await request.json();
 
-    const { name, icon, sub, description } = body;
+    const { name, sub, description } = body;
 
     if (!name) {
       return NextResponse.json(
@@ -18,7 +36,6 @@ export async function POST(request : NextRequest) {
 
     const categoryData = {
       name: name.trim(),
-      icon: icon || null,
       sub: sub ? sub.trim() : null,
       description: description || null,
     };

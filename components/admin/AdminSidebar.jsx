@@ -5,7 +5,10 @@ export default function AdminSidebar() {
   return (
     <aside className={styles.sidebar}>
       <div className={styles.brand}>
-        <span>👟</span> Bata Admin
+        <span>Admin</span>
+      </div>
+      <div className={styles.brand}>
+        Executive Super Store
       </div>
       <nav>
         <Link href="/admin/home">Home</Link>

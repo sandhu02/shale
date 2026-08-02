@@ -1,9 +1,24 @@
+'use client';
+
+import { useState } from 'react';
 import styles from './ProductDetail.module.css';
 import ProductGallery from './ProductGallery';
 import AddToCart from './AddToCart';
 
 export default function ProductDetail({ product }) {
-  console.log('ProductDetail product:', product);
+
+  const [productConfig, setProductConfig] = useState({
+    _id: product._id,
+    name: product.name,
+    category: product.category,
+    price: product.price,
+    discount: product.discount || 0,
+    discountedPrice: product.discount ? product.price - (product.price * product.discount) / 100 : product.price,
+    size: product.sizes?.[0] || null,
+    color: product.colors?.[0] || null,
+    images: product.images || [],
+    inStock: product.inStock,
+  });
 
   const { 
     name, 
@@ -18,7 +33,24 @@ export default function ProductDetail({ product }) {
   } = product;
 
   const discountedPrice = discount ? price - (price * discount) / 100 : price;
+  
+  // Handle size selection
+  const handleSizeSelect = (size) => {
+    setProductConfig(prev => ({
+      ...prev,
+      size
+    }));
+  };
 
+  // Handle color selection
+  const handleColorSelect = (color) => {
+    setProductConfig(prev => ({
+      ...prev,
+      color
+    }));
+  };
+
+  
   return (
     <div className={`container ${styles.detail}`}>
       {/* Breadcrumb */}
@@ -58,7 +90,7 @@ export default function ProductDetail({ product }) {
                 <label>Size</label>
                 <div className={styles.sizeOptions}>
                   {sizes.map((size) => (
-                    <button key={size} className={styles.sizeBtn}>
+                    <button key={size} className={styles.sizeBtn} onClick={() => handleSizeSelect(size)}>
                       {size}
                     </button>
                   ))}
@@ -75,6 +107,7 @@ export default function ProductDetail({ product }) {
                       className={styles.colorBtn}
                       style={{ backgroundColor: color.toLowerCase() }}
                       title={color}
+                      onClick={() => handleColorSelect(color)}
                     />
                   ))}
                 </div>
@@ -82,7 +115,7 @@ export default function ProductDetail({ product }) {
             )}
           </div>
 
-          <AddToCart product={product} />
+          <AddToCart product={productConfig} />
         </div>
       </div>
     </div>

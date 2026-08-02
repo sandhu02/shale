@@ -17,6 +17,9 @@ export default async function CategoryProduct(
   const { cat } = await params;
   const products = await getProductsWithCategory(cat);
 
+  // Decode the URL-encoded category name
+  const decodedCategory = decodeURIComponent(cat);
+
   return (
     <>
       <Head>
@@ -28,7 +31,7 @@ export default async function CategoryProduct(
       <main className="container">
         {/* <HeroBanner /> */}
         <SearchBar />
-        <ProductGrid products={products} header={cat}/>
+        <ProductGrid products={products} header={decodedCategory}/>
       </main>
     </>
   );

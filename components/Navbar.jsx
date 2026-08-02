@@ -71,7 +71,7 @@ export default function Navbar() {
                   className={styles.categoryItem}
                   onClick={() => setIsMegaOpen(false)}
                 >
-                  <span className={styles.catIcon}>{cat.icon}</span>
+                  {/* <span className={styles.catIcon}>{cat.icon}</span> */}
                   <span className={styles.catName}>{cat.name}</span>
                   <span className={`${styles.catSub} ${cat.highlight ? styles.highlight : ''}`}>
                     {cat.sub}

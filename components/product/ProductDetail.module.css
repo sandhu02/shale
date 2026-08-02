@@ -125,6 +125,11 @@
   background: #c8102e;
   color: #fff;
 }
+.sizeBtn.selected {
+  background: #c8102e;
+  color: #fff;
+  border-color: #c8102e;
+}
 
 .colorOptions {
   display: flex;

@@ -8,7 +8,6 @@ import styles from './page.module.css';
 export default function AddCategory() {
   const router = useRouter();
   const [name, setName] = useState('');
-  const [icon, setIcon] = useState('');
   const [sub, setSub] = useState('');
   const [description, setDescription] = useState('');
   const [loading, setLoading] = useState(false);
@@ -23,7 +22,7 @@ export default function AddCategory() {
       const res = await fetch('/api/categories', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, icon, sub, description }),
+        body: JSON.stringify({ name, sub, description }),
       });
 
       if (!res.ok) {
@@ -50,12 +49,8 @@ export default function AddCategory() {
           <input id="name" value={name} onChange={(e) => setName(e.target.value)} required />
         </div>
         <div className={styles.field}>
-          <label htmlFor="icon">Icon</label>
-          <input id="icon" placeholder='Enter an Emoji' value={icon} onChange={(e) => setIcon(e.target.value)} />
-        </div>
-        <div className={styles.field}>
           <label htmlFor="sub">Sub Category</label>
-          <input id="sub" value={sub} onChange={(e) => setSub(e.target.value)} />
+          <input id="sub" placeholder='Enter the sub-categories. Example: "Running & Jogging" for "Shoes" ' value={sub} onChange={(e) => setSub(e.target.value)} />
         </div>
         <div className={styles.field}>
           <label htmlFor="description">Description</label>

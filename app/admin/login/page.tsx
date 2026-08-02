@@ -82,7 +82,7 @@ export default function AdminLogin() {
         </form>
 
         <a href="/" className={styles.backLink}>
-          ← Back to store
+          Go to store →
         </a>
       </div>
     </div>

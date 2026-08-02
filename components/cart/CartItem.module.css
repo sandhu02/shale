@@ -42,6 +42,12 @@
   flex-wrap: wrap;
 }
 
+.options{
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
 .quantity {
   display: flex;
   align-items: center;
@@ -75,6 +81,31 @@
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 14px;
+}
+
+.sizeBtn {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+.sizeBtn:hover {
+  border-color: #c8102e;
+}
+
+.colorBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.colorBtn:hover {
+  border-color: #c8102e;
 }
 
 .removeBtn {

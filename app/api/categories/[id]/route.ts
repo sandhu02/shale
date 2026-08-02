@@ -50,7 +50,6 @@ export async function PUT(request: NextRequest, { params }: Props) {
       name: body.name.toString().trim(),
     };
 
-    if (body.icon !== undefined) updateData.icon = body.icon;
     if (body.sub !== undefined) updateData.sub = body.sub;
     if (body.description !== undefined) updateData.description = body.description;
 

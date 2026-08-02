@@ -11,7 +11,7 @@ export default function AddToCart({ product }) {
 
   console.log("product" , product)
 
-  const { _id, name, price, images, inStock } = product;
+  const { _id, name, category, price, discount, discountedPrice, size, color, images, inStock } = product;
 
   const handleAdd = () => {
     if (!inStock) {
@@ -23,7 +23,12 @@ export default function AddToCart({ product }) {
     addItem({
       id: _id,
       name,
+      category,
       price,
+      discount,
+      discountedPrice,
+      size,
+      color,
       image: images?.[0] || '/placeholder.jpg', // Use first image as thumbnail
       quantity,
     });

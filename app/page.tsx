@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
-import HeroBanner from '../components/HeroBanner';
 import SearchBar from '../components/SearchBar';
 import ProductGrid from '../components/ProductGrid';
 
@@ -19,8 +18,8 @@ export default async function Home() {
   return (
     <>
       <Head>
-        <title>Bata - Sneaker Fest</title>
-        <meta name="description" content="Bata e-commerce store" />
+        <title>Executive Super Store</title>
+        <meta name="description" content="Executive Super Store e-commerce site" />
       </Head>
       <Header />
       <Navbar />
