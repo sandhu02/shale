@@ -12,7 +12,7 @@ export default function EditCategory() {
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
   const [name, setName] = useState('');
-  const [slug, setSlug] = useState('');
+  const [sub, setSub] = useState('');
   const [description, setDescription] = useState('');
 
   useEffect(() => {
@@ -20,9 +20,14 @@ export default function EditCategory() {
       try {
         const res = await fetch(`/api/categories/${id}`);
         if (!res.ok) throw new Error('Failed to fetch category');
-        const data = await res.json();
+        const response = await res.json();
+
+        console.log('Fetched category data:', response);
+
+        const data = response.data;
+
         setName(data.name || '');
-        setSlug(data.slug || '');
+        setSub(data.sub || '');
         setDescription(data.description || '');
       } catch (err: any) {
         setError(err.message);
@@ -42,7 +47,7 @@ export default function EditCategory() {
       const res = await fetch(`/api/categories/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, slug, description }),
+        body: JSON.stringify({ name, sub, description }),
       });
 
       if (!res.ok) {
@@ -59,7 +64,11 @@ export default function EditCategory() {
     }
   };
 
-  if (loading) return <div className={styles.loading}>Loading...</div>;
+  if (loading) return (
+    <div className={styles.loading}>
+      Loading...
+    </div>
+  );
 
   return (
     <div className={styles.container}>
@@ -71,8 +80,8 @@ export default function EditCategory() {
           <input id="name" value={name} onChange={(e) => setName(e.target.value)} required />
         </div>
         <div className={styles.field}>
-          <label htmlFor="slug">Slug *</label>
-          <input id="slug" value={slug} onChange={(e) => setSlug(e.target.value)} required />
+          <label htmlFor="sub">Sub Category *</label>
+          <input id="sub" value={sub} onChange={(e) => setSub(e.target.value)} required />
         </div>
         <div className={styles.field}>
           <label htmlFor="description">Description</label>

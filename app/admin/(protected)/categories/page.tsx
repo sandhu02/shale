@@ -61,7 +61,7 @@ export default async function AdminCategories() {
           <thead>
             <tr>
               <th>Name</th>
-              <th>Sub</th>
+              <th>Sub Categories</th>
               <th>Items</th>
               <th>Actions</th>
             </tr>
@@ -77,7 +77,7 @@ export default async function AdminCategories() {
                     Edit
                   </Link>
                   <> / </>
-                  <Link href={`/admin/categories/${cat._id}/delete`} className={styles.editLink}>
+                  <Link href={``} className={styles.editLink}>
                     Delete
                   </Link>
                 </td>

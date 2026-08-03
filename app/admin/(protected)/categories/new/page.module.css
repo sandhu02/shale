@@ -101,6 +101,14 @@
   border-color: #bbb;
 }
 
+.loading {
+  color: #c8102e;
+  font-size: 18px;
+  color: #666;
+  text-align: center;
+  margin-top: 40px;
+}
+
 @media (max-width: 768px) {
   .container {
     padding: 16px;
