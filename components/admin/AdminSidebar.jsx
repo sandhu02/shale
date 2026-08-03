@@ -11,7 +11,7 @@ export default function AdminSidebar() {
         Executive Super Store
       </div>
       <nav>
-        <Link href="/admin/home">Home</Link>
+        <Link href="/admin/home">Customer Home</Link>
         <Link href="/admin">Dashboard</Link>
         <Link href="/admin/items">Items</Link>
         <Link href="/admin/categories">Categories</Link>

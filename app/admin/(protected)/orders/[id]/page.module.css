@@ -1,0 +1,648 @@
+/* ============================================
+   ADMIN ORDER DETAIL — BATA THEME
+   ============================================ */
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 24px 32px 48px;
+    font-family: inherit;
+    color: #1a1a1a;
+}
+
+/* ----- HEADER ----- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.headerLeft {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.backBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #666;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.2s;
+    padding: 4px 0;
+}
+.backBtn:hover {
+    color: #c8102e;
+}
+
+.pageTitle {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0;
+    color: #1a1a1a;
+}
+
+.orderNum {
+    color: #c8102e;
+}
+
+.headerRight {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.orderDate {
+    font-size: 14px;
+    color: #888;
+}
+
+/* ----- STATUS BADGE (shared) ----- */
+.statusBadge {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+}
+
+.statusPending {
+    background: #fff3cd;
+    color: #856404;
+}
+.statusProcessing {
+    background: #cce5ff;
+    color: #004085;
+}
+.statusDispatched {
+    background: #d4edda;
+    color: #155724;
+}
+.statusDelivered {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+.statusComplete {
+    background: #d4edda;
+    color: #155724;
+}
+.statusCanceled {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* ----- PAYMENT BADGE ----- */
+.paymentBadge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+.paymentPending {
+    background: #fff3cd;
+    color: #856404;
+}
+.paymentPaid {
+    background: #d4edda;
+    color: #155724;
+}
+.paymentFailed {
+    background: #f8d7da;
+    color: #721c24;
+}
+.paymentRefunded {
+    background: #e2e3e5;
+    color: #383d41;
+}
+
+/* ----- STATUS UPDATER ----- */
+.statusUpdater {
+    background: #f8f9fa;
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 28px;
+}
+
+.statusUpdaterHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+.statusUpdaterHeader h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    color: #1a1a1a;
+}
+.orderNumberRef {
+    font-size: 14px;
+    color: #888;
+    font-weight: 500;
+}
+
+.statusUpdaterBody {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.statusSelector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.statusOption {
+    padding: 6px 18px;
+    border: 2px solid #ddd;
+    background: #fff;
+    border-radius: 24px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #444;
+}
+.statusOption:hover:not(:disabled) {
+    border-color: #c8102e;
+    color: #c8102e;
+}
+.statusOption.selected {
+    background: #c8102e;
+    color: #fff;
+    border-color: #c8102e;
+}
+.statusOption:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+.statusOption.cancelOption {
+    color: #dc3545;
+}
+.statusOption.cancelOption.selected {
+    background: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
+}
+.statusOption.cancelOption:hover:not(:disabled) {
+    border-color: #dc3545;
+    color: #dc3545;
+}
+
+.statusUpdaterActions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.updateBtn {
+    padding: 8px 28px;
+    background: #c8102e;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.updateBtn:hover:not(:disabled) {
+    background: #a00d25;
+}
+.updateBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.resetBtn {
+    padding: 8px 20px;
+    background: transparent;
+    color: #666;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.resetBtn:hover:not(:disabled) {
+    border-color: #c8102e;
+    color: #c8102e;
+}
+.resetBtn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.currentStatusDisplay {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 10px 0 4px;
+    border-top: 1px solid #eaeaea;
+}
+.currentLabel {
+    font-size: 13px;
+    color: #888;
+    font-weight: 500;
+}
+.arrow {
+    color: #aaa;
+    font-size: 18px;
+}
+.pendingBadge {
+    font-size: 12px;
+    color: #c8102e;
+    background: #fde8e8;
+    padding: 2px 12px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.errorMsg {
+    font-size: 14px;
+    color: #dc3545;
+    background: #f8d7da;
+    padding: 8px 16px;
+    border-radius: 6px;
+}
+
+/* ----- GRID ----- */
+.grid {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 28px;
+}
+
+/* ----- CARDS ----- */
+.card {
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.cardTitle {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 14px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.itemCount {
+    font-size: 13px;
+    font-weight: 400;
+    color: #888;
+}
+
+/* ----- CUSTOMER INFO ----- */
+.customerInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.customerName {
+    font-size: 17px;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+.customerEmail,
+.customerPhone {
+    font-size: 14px;
+    color: #666;
+}
+
+/* ----- ADDRESS ----- */
+.address {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #444;
+}
+
+/* ----- PAYMENT INFO ----- */
+.paymentInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.paymentRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+.paymentLabel {
+    color: #888;
+}
+.paymentValue {
+    font-weight: 500;
+    color: #1a1a1a;
+}
+
+/* ----- NOTES ----- */
+.notes {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+    background: #f8f9fa;
+    padding: 12px 16px;
+    border-radius: 6px;
+    white-space: pre-wrap;
+}
+
+/* ----- ORDER ITEMS ----- */
+.itemsList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.orderItem {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+.orderItem:last-child {
+    border-bottom: none;
+}
+
+.itemImageWrap {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.itemImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.itemImagePlaceholder {
+    font-size: 28px;
+    opacity: 0.5;
+}
+
+.itemDetails {
+    flex: 1;
+    min-width: 0;
+}
+.itemName {
+    font-size: 15px;
+    font-weight: 500;
+    color: #1a1a1a;
+    margin-bottom: 2px;
+}
+.itemMeta {
+    display: flex;
+    gap: 14px;
+    font-size: 13px;
+    color: #888;
+}
+.itemVariant {
+    display: flex;
+    gap: 12px;
+    font-size: 13px;
+    color: #666;
+    margin-top: 2px;
+}
+
+.itemPrice {
+    text-align: right;
+    flex-shrink: 0;
+}
+.itemUnitPrice {
+    font-size: 13px;
+    color: #888;
+}
+.itemTotalPrice {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+/* ----- ORDER SUMMARY ----- */
+.summary {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.summaryRow {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #555;
+    padding: 4px 0;
+}
+.summaryRow span:last-child {
+    font-weight: 500;
+}
+.discountRow {
+    color: #c8102e;
+}
+.discountRow span:last-child {
+    font-weight: 600;
+}
+.totalRow {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1a1a1a;
+    border-top: 2px solid #eaeaea;
+    padding-top: 10px;
+    margin-top: 4px;
+}
+.totalRow span:last-child {
+    color: #c8102e;
+}
+
+/* ----- TIMELINE ----- */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-left: 4px;
+}
+
+.timelineItem {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+}
+
+.timelineDot {
+    width: 10px;
+    height: 10px;
+    min-width: 10px;
+    border-radius: 50%;
+    background: #c8102e;
+    margin-top: 5px;
+    position: relative;
+}
+.timelineItem:not(:last-child) .timelineDot::after {
+    content: "";
+    position: absolute;
+    top: 14px;
+    left: 4px;
+    width: 2px;
+    height: calc(100% + 10px);
+    background: #eaeaea;
+}
+
+.timelineContent {
+    flex: 1;
+}
+.timelineTitle {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.timelineDate {
+    font-size: 13px;
+    color: #888;
+    margin-top: 2px;
+}
+
+/* ----- NOT FOUND ----- */
+.notFound {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    text-align: center;
+}
+.notFound h2 {
+    font-size: 24px;
+    color: #1a1a1a;
+    margin-bottom: 16px;
+}
+.backLink {
+    color: #c8102e;
+    text-decoration: none;
+    font-size: 15px;
+}
+.backLink:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .leftColumn,
+    .rightColumn {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 16px;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .headerLeft {
+        width: 100%;
+    }
+    .headerRight {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .pageTitle {
+        font-size: 20px;
+    }
+
+    .statusUpdater {
+        padding: 16px;
+    }
+    .statusSelector {
+        gap: 6px;
+    }
+    .statusOption {
+        font-size: 13px;
+        padding: 5px 14px;
+    }
+
+    .card {
+        padding: 16px;
+    }
+
+    .orderItem {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .itemImageWrap {
+        width: 48px;
+        height: 48px;
+    }
+    .itemPrice {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding-left: 64px;
+    }
+    .itemUnitPrice {
+        font-size: 12px;
+    }
+    .itemTotalPrice {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .statusUpdaterActions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .updateBtn,
+    .resetBtn {
+        width: 100%;
+        justify-content: center;
+    }
+    .currentStatusDisplay {
+        flex-wrap: wrap;
+    }
+}
