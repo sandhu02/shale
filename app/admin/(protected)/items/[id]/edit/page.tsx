@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import Link from 'next/link';
+import { FaArrowLeft, FaExclamationCircle } from 'react-icons/fa';
 import styles from '../../new/page.module.css';
 
 interface Category {
@@ -200,10 +201,27 @@ export default function EditItem() {
 
   return (
     <div className={styles.container}>
-      <h1>Edit Item</h1>
-      {error && <p className={styles.error}>{error}</p>}
+      <Link href="/admin/items" className={styles.backLink}>
+        <FaArrowLeft />
+        <span>Back to Items</span>
+      </Link>
+
+      <div className={styles.header}>
+        <h1>Edit Item</h1>
+        <p className={styles.subtitle}>
+          Update product details, pricing, stock, and media.
+        </p>
+      </div>
+
+      {error && (
+        <div className={styles.error}>
+          <FaExclamationCircle />
+          <span>{error}</span>
+        </div>
+      )}
       
-      <form onSubmit={handleSubmit} className={styles.form}>
+      <div className={styles.card}>
+        <form onSubmit={handleSubmit} className={styles.form}>
         {/* Name */}
         <div className={styles.field}>
           <label htmlFor="name">Name *</label>
@@ -399,6 +417,7 @@ export default function EditItem() {
           </Link>
         </div>
       </form>
+      </div>
     </div>
   );
 }

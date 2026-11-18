@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { FaArrowLeft, FaExclamationCircle } from 'react-icons/fa';
 import styles from './page.module.css';
 
 export default function AddCategory() {
@@ -32,8 +33,8 @@ export default function AddCategory() {
 
       router.push('/admin/categories');
       router.refresh();
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to create category');
     } finally {
       setLoading(false);
     }
@@ -41,30 +42,81 @@ export default function AddCategory() {
 
   return (
     <div className={styles.container}>
-      <h1>Add New Category</h1>
-      {error && <p className={styles.error}>{error}</p>}
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <div className={styles.field}>
-          <label htmlFor="name">Name *</label>
-          <input id="name" value={name} onChange={(e) => setName(e.target.value)} required />
+      <Link href="/admin/categories" className={styles.backLink}>
+        <FaArrowLeft />
+        <span>Back to Categories</span>
+      </Link>
+
+      <div className={styles.header}>
+        <h1>Add New Category</h1>
+        <p className={styles.subtitle}>
+          Create a new category to group and organize products in your store.
+        </p>
+      </div>
+
+      {error && (
+        <div className={styles.error}>
+          <FaExclamationCircle />
+          <span>{error}</span>
         </div>
-        <div className={styles.field}>
-          <label htmlFor="sub">Sub Category</label>
-          <input id="sub" placeholder='Enter the sub-categories. Example: "Running & Jogging" for "Shoes" ' value={sub} onChange={(e) => setSub(e.target.value)} />
-        </div>
-        <div className={styles.field}>
-          <label htmlFor="description">Description</label>
-          <textarea id="description" value={description} onChange={(e) => setDescription(e.target.value)} rows={3} />
-        </div>
-        <div className={styles.actions}>
-          <button type="submit" className={styles.submitBtn} disabled={loading}>
-            {loading ? 'Creating...' : 'Create Category'}
-          </button>
-          <Link href="/admin/categories" className={styles.cancelBtn}>
-            Cancel
-          </Link>
-        </div>
-      </form>
+      )}
+
+      <div className={styles.card}>
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <div className={styles.field}>
+            <label htmlFor="name">
+              Category Name <span className={styles.required}>*</span>
+            </label>
+            <input
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="e.g. Footwear, Men's Clothing, Accessories"
+              required
+            />
+            <span className={styles.hint}>
+              The public name displayed in store navigation and filter menus
+            </span>
+          </div>
+
+          <div className={styles.field}>
+            <label htmlFor="sub">
+              Sub Category <span className={styles.optional}>(Optional)</span>
+            </label>
+            <input
+              id="sub"
+              placeholder="e.g. Running & Jogging, Casual, Formal"
+              value={sub}
+              onChange={(e) => setSub(e.target.value)}
+            />
+            <span className={styles.hint}>
+              Optional secondary classification for items under this category
+            </span>
+          </div>
+
+          <div className={styles.field}>
+            <label htmlFor="description">
+              Description <span className={styles.optional}>(Optional)</span>
+            </label>
+            <textarea
+              id="description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              rows={3}
+              placeholder="Brief summary of items in this category..."
+            />
+          </div>
+
+          <div className={styles.actions}>
+            <button type="submit" className={styles.submitBtn} disabled={loading}>
+              {loading ? 'Creating Category...' : 'Create Category'}
+            </button>
+            <Link href="/admin/categories" className={styles.cancelBtn}>
+              Cancel
+            </Link>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
