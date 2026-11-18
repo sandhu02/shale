@@ -1,12 +1,17 @@
 .layout {
   display: flex;
   min-height: 100vh;
+  background: #f8f9fa;
 }
+
 .content {
   flex: 1;
-  background: #f8f8f8;
+  background: #f8f9fa;
+  min-width: 0;
+  width: 100%;
 }
-@media (max-width: 768px) {
+
+@media (max-width: 900px) {
   .layout {
     flex-direction: column;
   }

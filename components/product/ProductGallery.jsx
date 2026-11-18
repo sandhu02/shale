@@ -1,26 +1,55 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import styles from './ProductGallery.module.css';
 
-export default function ProductGallery({ images, productName }) {
+export default function ProductGallery({ images = [], productName }) {
   const [selected, setSelected] = useState(0);
-  const mainImage = images?.[selected] || '/placeholder.jpg';
+
+  const validImages = images && images.length > 0 ? images : ['/placeholder.jpg'];
+  const currentImage = validImages[selected] || validImages[0];
 
   return (
     <div className={styles.gallery}>
       <div className={styles.main}>
-        <img src={mainImage} alt={productName} />
+        {currentImage === '/placeholder.jpg' ? (
+          <div className={styles.placeholder}>
+            <span className={styles.placeholderEmoji}>👟</span>
+          </div>
+        ) : (
+          <div className={styles.imageContainer}>
+            <Image
+              src={currentImage}
+              alt={productName}
+              fill
+              priority
+              sizes="(max-width: 900px) 100vw, 50vw"
+              className={styles.mainImage}
+            />
+          </div>
+        )}
       </div>
-      {images && images.length > 1 && (
+
+      {validImages.length > 1 && (
         <div className={styles.thumbnails}>
-          {images.map((img, idx) => (
+          {validImages.map((img, idx) => (
             <button
               key={idx}
+              type="button"
               className={`${styles.thumb} ${idx === selected ? styles.active : ''}`}
               onClick={() => setSelected(idx)}
+              aria-label={`View image ${idx + 1} of ${validImages.length}`}
             >
-              <img src={img} alt={`Thumb ${idx + 1}`} />
+              <div className={styles.thumbImageContainer}>
+                <Image
+                  src={img}
+                  alt={`Thumbnail ${idx + 1}`}
+                  fill
+                  sizes="80px"
+                  className={styles.thumbImage}
+                />
+              </div>
             </button>
           ))}
         </div>

@@ -1,88 +1,245 @@
 .container {
   padding: 24px 32px;
+  max-width: 1400px;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 16px;
 }
 
 .header h1 {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 700;
   color: #1a1a1a;
+  margin: 0;
+}
+
+.subtext {
+  font-size: 14px;
+  color: #777;
+  margin-top: 4px;
 }
 
 .addBtn {
   background: #c8102e;
   color: #fff;
   padding: 10px 20px;
-  border-radius: 40px;
+  border-radius: 8px;
   font-weight: 600;
+  font-size: 14px;
   text-decoration: none;
   transition: background 0.2s;
 }
+
 .addBtn:hover {
   background: #a80d26;
 }
 
+.errorMsg {
+  background: #fde8e8;
+  color: #c8102e;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.searchBar {
+  margin-bottom: 20px;
+  max-width: 360px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.searchInput:focus {
+  border-color: #c8102e;
+}
+
+.tableCard {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #eaeaea;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+}
+
 .tableWrap {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .table {
   width: 100%;
   border-collapse: collapse;
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  text-align: left;
 }
 
 .table th {
-  background: #f8f8f8;
+  background: #fbfbfb;
   font-weight: 600;
-  font-size: 14px;
-  text-align: left;
-  padding: 14px 20px;
-  color: #444;
+  font-size: 13px;
+  padding: 14px 18px;
+  color: #555;
+  border-bottom: 1px solid #eaeaea;
+  white-space: nowrap;
 }
 
 .table td {
-  padding: 14px 20px;
-  border-top: 1px solid #f0f0f0;
+  padding: 14px 18px;
+  border-bottom: 1px solid #f0f0f0;
   font-size: 14px;
+  vertical-align: middle;
 }
 
-.inStock {
-  color: #2d7a2d;
-  font-weight: 600;
-  background: #eaf6ea;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 12px;
+.table tr:last-child td {
+  border-bottom: none;
 }
 
-.outStock {
-  color: #c8102e;
+.table tbody tr:hover {
+  background: #fafafa;
+}
+
+.catName {
+  display: block;
   font-weight: 600;
-  background: #fde8e8;
-  padding: 4px 12px;
-  border-radius: 20px;
+  color: #1a1a1a;
+}
+
+.catDesc {
+  display: block;
   font-size: 12px;
+  color: #888;
+  margin-top: 2px;
+}
+
+.catSub {
+  color: #555;
+  font-size: 13px;
+}
+
+.badge {
+  background: #eef2ff;
+  color: #3b5998;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.actionGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.viewLink {
+  background: #f5f5f5;
+  color: #333;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+  border: 1px solid #e0e0e0;
+}
+
+.viewLink:hover {
+  background: #e8e8e8;
+  color: #000;
 }
 
 .editLink {
-  color: #c8102e;
-  font-weight: 500;
+  background: #f0f7ff;
+  color: #0066cc;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
   text-decoration: none;
+  transition: all 0.2s;
+  border: 1px solid #d0e4ff;
 }
+
 .editLink:hover {
-  text-decoration: underline;
+  background: #e0f0ff;
+  color: #004d99;
+}
+
+.deleteLink {
+  background: #fff5f5;
+  color: #c8102e;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid #ffd0d6;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.deleteLink:hover:not(:disabled) {
+  background: #ffe5e8;
+  border-color: #c8102e;
+}
+
+.deleteLink:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tableFooter {
+  padding: 12px 18px;
+  font-size: 13px;
+  color: #777;
+  background: #fbfbfb;
+  border-top: 1px solid #eaeaea;
+}
+
+.emptyCell {
+  padding: 40px;
+  text-align: center;
+  color: #888;
+}
+
+.loadingWrap {
+  background: #fff;
+  border-radius: 12px;
+  padding: 60px 16px;
+  text-align: center;
+  border: 1px solid #eaeaea;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #f0f0f0;
+  border-top-color: #c8102e;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 12px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @media (max-width: 768px) {

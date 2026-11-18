@@ -1,36 +1,56 @@
 .section {
-  padding: 8px 0 40px;
+  padding: 8px 0 48px;
 }
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 12px;
 }
 
-.header h3 {
-  font-size: 22px;
-  font-weight: 700;
+.title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.title span:first-child {
   color: #1a1a1a;
 }
 
-.header h3 span {
-  color: #c8102e;
+.countBadge {
+  font-size: 14px;
+  font-weight: 600;
+  color: #888888;
+}
+
+.subHeader {
+  font-size: 14px;
+  color: #666666;
+  margin-top: 4px;
 }
 
 .viewAll {
   font-size: 14px;
   font-weight: 600;
   color: #c8102e;
-  transition: color 0.2s;
+  text-decoration: none;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .viewAll:hover {
   color: #a80d26;
-  text-decoration: underline;
+  transform: translateX(2px);
 }
 
 .grid {
@@ -39,7 +59,54 @@
   gap: 24px;
 }
 
-@media (max-width: 1024px) {
+.emptyWrap {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 60px 24px;
+  text-align: center;
+  border: 1px dashed #ddd;
+  margin: 20px 0;
+}
+
+.emptyEmoji {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.emptyWrap h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 6px;
+}
+
+.emptyWrap p {
+  font-size: 14px;
+  color: #666666;
+  margin-bottom: 20px;
+}
+
+.resetBtn {
+  background: #c8102e;
+  color: #ffffff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s;
+}
+
+.resetBtn:hover {
+  background: #a80d26;
+  box-shadow: 0 4px 12px rgba(200, 16, 46, 0.25);
+}
+
+@media (max-width: 1100px) {
   .grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
@@ -47,17 +114,20 @@
 }
 
 @media (max-width: 768px) {
-  .header h3 {
-    font-size: 18px;
+  .section {
+    padding: 4px 0 32px;
+  }
+  .title {
+    font-size: 20px;
   }
   .grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 14px;
   }
 }
 
 @media (max-width: 480px) {
   .grid {
-    gap: 12px;
+    gap: 10px;
   }
 }

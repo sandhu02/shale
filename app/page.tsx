@@ -1,15 +1,29 @@
-import Head from 'next/head';
-import Header from '../components/Header';
-import Navbar from '../components/Navbar';
-import SearchBar from '../components/SearchBar';
-import ProductGrid from '../components/ProductGrid';
+import type { Metadata } from 'next';
+import Header from '@/components/Header';
+import Navbar from '@/components/Navbar';
+import HeroBanner from '@/components/HeroBanner';
+import StoreProductSection from '@/components/StoreProductSection';
+import Footer from '@/components/Footer';
 
 export const dynamic = 'force-dynamic';
 
+export const metadata: Metadata = {
+  title: 'Executive Super Store — Premium Shoes & Accessories',
+  description: 'Official Executive Super Store. Discover top quality shoes, bags, and fashion accessories.',
+};
+
 async function getProducts() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/items`);
-  const {data} = await res.json();
-  return data;
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/items`, {
+      cache: 'no-store',
+    });
+    if (!res.ok) return [];
+    const { data } = await res.json();
+    return data || [];
+  } catch (error) {
+    console.error('Failed to fetch products:', error);
+    return [];
+  }
 }
 
 export default async function Home() {
@@ -17,17 +31,13 @@ export default async function Home() {
 
   return (
     <>
-      <Head>
-        <title>Executive Super Store</title>
-        <meta name="description" content="Executive Super Store e-commerce site" />
-      </Head>
       <Header />
       <Navbar />
-      <main className="container">
-        {/* <HeroBanner /> */}
-        <SearchBar />
-        <ProductGrid products={products} header={"Products"}/>
+      <main className="container" style={{ minHeight: '60vh', paddingBottom: '32px' }}>
+        <HeroBanner />
+        <StoreProductSection initialProducts={products} title="Featured Products" />
       </main>
+      <Footer />
     </>
   );
 }

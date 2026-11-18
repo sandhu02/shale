@@ -1,7 +1,10 @@
 .header {
-  background: #fff;
+  background: #ffffff;
   border-bottom: 1px solid #eaeaea;
   padding: 12px 0;
+  position: relative;
+  z-index: 101;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
 }
 
 .inner {
@@ -9,24 +12,44 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 16px;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 10px;
+  text-decoration: none;
+  color: #1a1a1a;
+  transition: opacity 0.2s;
+}
+
+.brand:hover {
+  opacity: 0.9;
+}
+
+.logoBadge {
+  width: 38px;
+  height: 38px;
+  background: #fde8e8;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .logoIcon {
-  font-size: 28px;
+  font-size: 20px;
   color: #c8102e;
 }
 
 .brand h1 {
-  font-size: 28px;
-  font-weight: 700;
+  font-size: 24px;
+  font-weight: 800;
   letter-spacing: -0.5px;
+  margin: 0;
+  line-height: 1.2;
 }
 
 .brand h1 span {
@@ -38,43 +61,139 @@
   align-items: center;
   gap: 20px;
   font-size: 14px;
-  color: #444;
 }
 
-.contact a {
+.contactLink {
   display: flex;
   align-items: center;
   gap: 6px;
+  color: #4b5563;
   transition: color 0.2s;
+  font-weight: 500;
+  text-decoration: none;
 }
 
-.contact a:hover {
+.contactLink:hover {
   color: #c8102e;
 }
 
 .icon {
-  font-size: 18px;
+  font-size: 16px;
+  color: #c8102e;
+  flex-shrink: 0;
+}
+
+.whatsappIcon {
+  color: #25d366;
+}
+
+.cartLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f8f9fa;
+  border: 1px solid #e5e7eb;
+  padding: 6px 14px;
+  border-radius: 30px;
+  color: #1a1a1a;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.cartLink:hover {
+  background: #fde8e8;
+  border-color: #fca5a5;
   color: #c8102e;
 }
 
-.userIcon {
-  font-size: 22px;
-  color: #555;
+.cartIconWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cartIcon {
+  font-size: 17px;
+  color: #c8102e;
+}
+
+.cartBadge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: #c8102e;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.cartLabel {
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+  .brand h1 {
+    font-size: 20px;
+  }
+  .contact {
+    gap: 14px;
+    font-size: 13px;
+  }
 }
 
 @media (max-width: 768px) {
-  .inner {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 6px;
+  .header {
+    padding: 10px 0;
   }
-  .brand {
-    justify-content: center;
+  .inner {
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .brand h1 {
+    font-size: 18px;
   }
   .contact {
-    justify-content: center;
-    gap: 16px;
-    font-size: 13px;
-    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .contactText {
+    display: none;
+  }
+  .contactLink {
+    padding: 6px 8px;
+    border-radius: 8px;
+    background: #f8f9fa;
+  }
+  .icon {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand h1 {
+    font-size: 16px;
+  }
+  .logoBadge {
+    width: 32px;
+    height: 32px;
+  }
+  .logoIcon {
+    font-size: 16px;
+  }
+  .cartLink {
+    padding: 5px 10px;
+  }
+  .cartLabel {
+    display: none;
   }
 }

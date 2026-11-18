@@ -2,141 +2,193 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 16px 0;
+  padding: 18px 0;
   border-bottom: 1px solid #f0f0f0;
-  flex-wrap: wrap;
+  position: relative;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.imageWrap {
+  position: relative;
+  width: 84px;
+  height: 84px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #f8f8f8;
+  flex-shrink: 0;
+  border: 1px solid #eee;
 }
 
 .image {
-  width: 80px;
-  height: 80px;
-  border-radius: 8px;
-  overflow: hidden;
-  background: #fafafa;
-  flex-shrink: 0;
+  object-fit: cover;
 }
-.image img {
+
+.placeholder {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
 }
 
 .details {
   flex: 1;
   min-width: 140px;
 }
-.details h3 {
-  font-size: 16px;
-  font-weight: 600;
-  margin: 0;
+
+.name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-decoration: none;
+  line-height: 1.3;
+  display: block;
+  margin-bottom: 4px;
+  transition: color 0.2s;
 }
+
+.name:hover {
+  color: #c8102e;
+}
+
 .price {
-  color: #666;
+  color: #6b7280;
   font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 6px;
+}
+
+.options {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.sizeBadge {
+  background: #f3f4f6;
+  color: #374151;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.colorBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #f3f4f6;
+  color: #374151;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.colorDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 .controls {
   display: flex;
   align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.options{
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .quantity {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 4px;
-}
-.quantity button {
-  width: 32px;
-  height: 32px;
-  border: 1px solid #ddd;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 8px;
   background: #fff;
-  border-radius: 4px;
+  height: 38px;
+  overflow: hidden;
+}
+
+.qtyBtn {
+  width: 32px;
+  height: 100%;
+  border: none;
+  background: transparent;
   cursor: pointer;
   font-size: 16px;
+  color: #4b5563;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.2s;
 }
-.quantity button:hover:not(:disabled) {
-  border-color: #c8102e;
-  background: #fde8e8;
+
+.qtyBtn:hover:not(:disabled) {
+  background: #f3f4f6;
+  color: #c8102e;
 }
-.quantity button:disabled {
-  opacity: 0.4;
+
+.qtyBtn:disabled {
+  opacity: 0.3;
   cursor: not-allowed;
 }
-.quantity input {
-  width: 48px;
+
+.qtyInput {
+  width: 40px;
+  height: 100%;
+  border: none;
   text-align: center;
-  padding: 4px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
   font-size: 14px;
+  font-weight: 600;
+  outline: none;
+  color: #1a1a1a;
+  -moz-appearance: textfield;
 }
 
-.sizeBtn {
-  padding: 8px 16px;
-  border: 1px solid #ddd;
-  background: #fff;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: all 0.2s;
-}
-.sizeBtn:hover {
-  border-color: #c8102e;
+.qtyInput::-webkit-outer-spin-button,
+.qtyInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-.colorBtn {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 2px solid #ddd;
-  cursor: pointer;
-  transition: border-color 0.2s;
-}
-.colorBtn:hover {
-  border-color: #c8102e;
+.subtotal {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+  min-width: 90px;
+  text-align: right;
 }
 
 .removeBtn {
   background: none;
   border: none;
-  color: #c8102e;
-  font-size: 14px;
+  color: #9ca3af;
+  font-size: 16px;
   cursor: pointer;
-  padding: 4px 8px;
+  padding: 8px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
 }
+
 .removeBtn:hover {
-  text-decoration: underline;
+  color: #c8102e;
+  background: #fde8e8;
 }
 
-.subtotal {
-  font-weight: 700;
-  font-size: 18px;
-  min-width: 80px;
-  text-align: right;
-  color: #1a1a1a;
-}
-
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .item {
-    flex-direction: column;
-    align-items: stretch;
+    flex-wrap: wrap;
     gap: 12px;
   }
-  .image {
+  .controls {
     width: 100%;
-    height: 120px;
+    justify-content: space-between;
+    padding-top: 8px;
   }
   .subtotal {
     text-align: left;

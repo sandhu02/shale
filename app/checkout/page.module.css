@@ -1,166 +1,392 @@
-.checkout {
-  padding: 32px 0 48px;
+.checkoutSection {
+  padding: 32px 0;
 }
 
-.checkout h1 {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 24px;
+.pageHeader {
+  margin-bottom: 28px;
+}
+
+.pageHeader h1 {
+  font-size: 26px;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0 0 6px;
+}
+
+.subtext {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1.2fr 1fr;
   gap: 32px;
+  align-items: start;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 28px;
+  border: 1px solid #eaeaea;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.sectionIcon {
+  color: #c8102e;
+  font-size: 20px;
+}
+
+.cardHeader h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
 }
 
 .form {
-  background: #fff;
-  padding: 28px 32px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   display: flex;
   flex-direction: column;
   gap: 18px;
 }
 
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
 .field {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-}
-.field label {
-  font-weight: 600;
-  font-size: 14px;
-}
-.field input,
-.field textarea {
-  padding: 10px 14px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 15px;
-}
-.field input:focus,
-.field textarea:focus {
-  outline: none;
-  border-color: #c8102e;
+  gap: 6px;
 }
 
-.error {
-  color: #c8102e;
-  background: #fde8e8;
-  padding: 8px 14px;
-  border-radius: 6px;
+.field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
   font-size: 14px;
+  color: #111827;
+  outline: none;
+  background: #ffffff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: #c8102e;
+  box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.1);
+}
+
+.paymentSection {
+  background: #fafafa;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 16px;
+  margin-top: 6px;
+}
+
+.paymentLabel {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #6b7280;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.paymentOption {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.paymentOption input[type='radio'] {
+  accent-color: #c8102e;
+  margin-top: 3px;
+  width: 16px;
+  height: 16px;
+}
+
+.radioLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  cursor: pointer;
+}
+
+.radioLabel strong {
+  font-size: 14px;
+  color: #1a1a1a;
+}
+
+.radioLabel span {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.errorBox {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
 }
 
 .submitBtn {
   background: #c8102e;
+  color: #ffffff;
   border: none;
-  color: #fff;
-  padding: 14px;
-  border-radius: 40px;
-  font-size: 18px;
-  font-weight: 600;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
   cursor: pointer;
-  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(200, 16, 46, 0.25);
+  margin-top: 8px;
 }
+
 .submitBtn:hover:not(:disabled) {
   background: #a80d26;
+  box-shadow: 0 6px 20px rgba(200, 16, 46, 0.35);
 }
+
 .submitBtn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
 
-.summary {
+.summaryCol {
   position: sticky;
-  top: 100px;
-  align-self: start;
+  top: 76px;
 }
 
-.summaryCard {
-  background: #fff;
-  border-radius: 12px;
-  padding: 24px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-}
-.summaryCard h3 {
+.summaryTitle {
   font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 16px;
   padding-bottom: 12px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 .itemsPreview {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
+  max-height: 260px;
+  overflow-y: auto;
+  padding-right: 4px;
   margin-bottom: 16px;
 }
+
 .previewItem {
   display: flex;
   justify-content: space-between;
-  font-size: 14px;
-  color: #444;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f9f9f9;
 }
-.total {
+
+.previewInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.previewName {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.previewMeta {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.previewPrice {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111827;
+  white-space: nowrap;
+}
+
+.summaryCalc {
+  padding-top: 10px;
+}
+
+.calcRow {
   display: flex;
   justify-content: space-between;
-  font-size: 20px;
-  font-weight: 700;
-  border-top: 1px solid #eee;
-  padding-top: 16px;
+  font-size: 14px;
+  color: #4b5563;
+  margin-bottom: 10px;
 }
 
-/* Success page */
-.success {
-  padding: 60px 0;
-  text-align: center;
+.freeShipping {
+  color: #059669;
+  font-weight: 700;
 }
+
+.divider {
+  height: 1px;
+  background: #eaeaea;
+  margin: 12px 0;
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+}
+
+.trustBadge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #6b7280;
+  background: #f8fafc;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.trustIcon {
+  color: #059669;
+  flex-shrink: 0;
+}
+
+/* Success View */
+.successWrap {
+  padding: 48px 0;
+  display: flex;
+  justify-content: center;
+}
+
 .successCard {
-  background: #fff;
-  max-width: 480px;
-  margin: 0 auto;
-  padding: 40px 36px;
+  background: #ffffff;
   border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-}
-.icon {
-  font-size: 48px;
-}
-.successCard h2 {
-  font-size: 28px;
-  font-weight: 700;
-  margin: 12px 0 8px;
-}
-.successCard p {
-  color: #666;
-  margin-bottom: 6px;
-}
-.continueBtn {
-  display: inline-block;
-  margin-top: 20px;
-  background: #c8102e;
-  color: #fff;
-  padding: 12px 32px;
-  border-radius: 40px;
-  text-decoration: none;
-  font-weight: 600;
-}
-.continueBtn:hover {
-  background: #a80d26;
+  padding: 48px 36px;
+  text-align: center;
+  max-width: 540px;
+  width: 100%;
+  border: 1px solid #eaeaea;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
 }
 
-@media (max-width: 768px) {
+.successIcon {
+  width: 64px;
+  height: 64px;
+  background: #ecfdf5;
+  color: #059669;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  margin: 0 auto 20px;
+}
+
+.successCard h2 {
+  font-size: 24px;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0 0 10px;
+}
+
+.thankYouText {
+  font-size: 15px;
+  color: #4b5563;
+  margin: 0 0 20px;
+}
+
+.orderNoticeBox {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 24px;
+  font-size: 13px;
+  color: #374151;
+  text-align: left;
+}
+
+.orderNoticeBox p {
+  margin: 4px 0;
+}
+
+.paymentMethodNotice {
+  color: #c8102e;
+  font-weight: 500;
+}
+
+.continueShoppingBtn {
+  display: inline-block;
+  background: #c8102e;
+  color: #ffffff;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.continueShoppingBtn:hover {
+  background: #a80d26;
+  box-shadow: 0 4px 14px rgba(200, 16, 46, 0.3);
+}
+
+@media (max-width: 900px) {
   .grid {
     grid-template-columns: 1fr;
   }
-  .summary {
+  .summaryCol {
     position: static;
   }
-  .form {
-    padding: 20px;
+}
+
+@media (max-width: 640px) {
+  .row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .card {
+    padding: 20px 16px;
   }
 }

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import styles from './login.module.css';
 
 export default function AdminLogin() {
@@ -81,9 +82,9 @@ export default function AdminLogin() {
           </button>
         </form>
 
-        <a href="/" className={styles.backLink}>
+        <Link href="/" className={styles.backLink}>
           Go to store →
-        </a>
+        </Link>
       </div>
     </div>
   );
