@@ -39,8 +39,9 @@
   background: #f8f8f8;
 }
 
-.placeholderEmoji {
-  font-size: 80px;
+.placeholderIcon {
+  font-size: 56px;
+  color: #d1d5db;
 }
 
 .thumbnails {

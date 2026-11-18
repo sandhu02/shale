@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { FaImage } from 'react-icons/fa';
 import styles from './ProductGallery.module.css';
 
 export default function ProductGallery({ images = [], productName }) {
@@ -15,7 +16,7 @@ export default function ProductGallery({ images = [], productName }) {
       <div className={styles.main}>
         {currentImage === '/placeholder.jpg' ? (
           <div className={styles.placeholder}>
-            <span className={styles.placeholderEmoji}>👟</span>
+            <FaImage className={styles.placeholderIcon} />
           </div>
         ) : (
           <div className={styles.imageContainer}>

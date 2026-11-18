@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { FaImage } from 'react-icons/fa';
 import styles from './ProductCard.module.css';
 
 export default function ProductCard({ product }) {
@@ -51,7 +52,7 @@ export default function ProductCard({ product }) {
             />
           ) : (
             <div className={styles.placeholderWrap}>
-              <span className={styles.emoji} aria-hidden="true">👟</span>
+              <FaImage className={styles.placeholderIcon} aria-hidden="true" />
             </div>
           )}
         </div>

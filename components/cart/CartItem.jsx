@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './CartItem.module.css';
-import { FaTrashAlt } from 'react-icons/fa';
+import { FaTrashAlt, FaImage } from 'react-icons/fa';
 
 export default function CartItem({ item, onUpdate, onRemove }) {
   const { id, name, discountedPrice, quantity, image, size, color } = item;
@@ -30,7 +30,7 @@ export default function CartItem({ item, onUpdate, onRemove }) {
           />
         ) : (
           <div className={styles.placeholder}>
-            <span>👟</span>
+            <FaImage className={styles.placeholderIcon} />
           </div>
         )}
       </div>

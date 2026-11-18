@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { FaStore } from 'react-icons/fa';
 import styles from './login.module.css';
 
 export default function AdminLogin() {
@@ -43,10 +44,12 @@ export default function AdminLogin() {
     <div className={styles.page}>
       <div className={styles.card}>
         <div className={styles.brand}>
-          <span className={styles.logo}>🤖</span>
-          <h1>Admin</h1>
+          <div className={styles.logoBadge}>
+            <FaStore className={styles.logoIcon} />
+          </div>
+          <h1>Admin Portal</h1>
         </div>
-        <p className={styles.subtitle}>Sign in to manage your store</p>
+        <p className={styles.subtitle}>Executive Super Store Management</p>
 
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.field}>

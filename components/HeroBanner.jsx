@@ -4,12 +4,12 @@ export default function HeroBanner() {
   return (
     <section className={styles.banner}>
       <div className={styles.content}>
-        <div className={styles.tagline}>Executive Collection</div>
+        <div className={styles.tagline}>Seasonal Sale</div>
         <h2 className={styles.heading}>
-          PREMIUM STYLE &amp; <span>COMFORT</span>
+          Executive Footwear <span>Collection</span>
         </h2>
         <p className={styles.subtext}>
-          Discover the latest arrivals in men&apos;s and ladies&apos; footwear. High quality, best prices.
+          Handcrafted quality, everyday comfort. Free delivery on orders nationwide.
         </p>
       </div>
       <div className={styles.badgeWrap}>

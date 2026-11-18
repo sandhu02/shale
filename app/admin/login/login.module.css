@@ -21,12 +21,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
   margin-bottom: 8px;
 }
 
-.logo {
-  font-size: 32px;
+.logoBadge {
+  width: 44px;
+  height: 44px;
+  background: #fde8e8;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c8102e;
+  font-size: 22px;
+  flex-shrink: 0;
 }
 
 .brand h1 {

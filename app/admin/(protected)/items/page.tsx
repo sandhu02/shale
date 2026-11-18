@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useState, useMemo } from 'react';
+import { FaImage } from 'react-icons/fa';
 import styles from './page.module.css';
 
 type Item = {
@@ -189,7 +190,7 @@ export default function AdminItems() {
                             {item.images && item.images.length > 0 ? (
                               <img src={item.images[0]} alt={item.name} />
                             ) : (
-                              <span>📦</span>
+                              <FaImage className={styles.thumbPlaceholderIcon} />
                             )}
                           </div>
                         </td>

@@ -68,10 +68,20 @@
   margin: 20px 0;
 }
 
-.emptyEmoji {
-  font-size: 48px;
-  display: block;
-  margin-bottom: 12px;
+.emptyIconWrap {
+  width: 56px;
+  height: 56px;
+  background: #fde8e8;
+  color: #c8102e;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.emptyIcon {
+  font-size: 22px;
 }
 
 .emptyWrap h4 {

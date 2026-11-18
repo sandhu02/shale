@@ -173,6 +173,11 @@
   object-fit: cover;
 }
 
+.thumbPlaceholderIcon {
+  color: #c4c4c4;
+  font-size: 16px;
+}
+
 .nameBlock {
   display: flex;
   align-items: center;

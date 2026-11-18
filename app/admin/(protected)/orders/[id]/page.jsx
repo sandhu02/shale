@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState, useTransition } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
+import { FaShoppingBag } from "react-icons/fa";
 import styles from "./page.module.css";
 
 function StatusBadge({ status }) {
@@ -311,7 +312,7 @@ export default function OrderDetailClient() {
                                         {item.image ? (
                                             <img src={item.image} alt={item.name} className={styles.itemImage} />
                                         ) : (
-                                            <div className={styles.itemImagePlaceholder}><span>🛍</span></div>
+                                            <div className={styles.itemImagePlaceholder}><FaShoppingBag /></div>
                                         )}
                                     </div>
                                     <div className={styles.itemDetails}>

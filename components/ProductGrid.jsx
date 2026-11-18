@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { FaSearch } from 'react-icons/fa';
 import styles from './ProductGrid.module.css';
 import ProductCard from './product/ProductCard';
 
@@ -34,7 +35,9 @@ export default function ProductGrid({
 
       {count === 0 ? (
         <div className={styles.emptyWrap}>
-          <span className={styles.emptyEmoji}>🔍</span>
+          <div className={styles.emptyIconWrap}>
+            <FaSearch className={styles.emptyIcon} />
+          </div>
           <h4>No products found</h4>
           <p>We couldn&apos;t find any products matching your criteria.</p>
           {onClearFilter ? (

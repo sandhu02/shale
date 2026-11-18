@@ -49,8 +49,7 @@ export default function Footer() {
             <h3>Executive Super Store<span>.</span></h3>
           </div>
           <p className={styles.desc}>
-            Your premier destination for high quality shoes, accessories, and daily essentials.
-            Offering elegance, comfort, and unmatched value.
+            Formal and casual footwear for men and women across Pakistan. Fast dispatch, cash on delivery, and dedicated customer support.
           </p>
           <div className={styles.contactDetails}>
             <a href="mailto:excecutivesuperstore@gmail.com" className={styles.contactRow}>
